@@ -42,46 +42,6 @@ Parte do XML
 
 </LinearLayout>
 
-/////////////////////////////////
 
-Parte do Java
-
-
-package com.Pedroh.calculadoraimc;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import java.util.Locale;
-import androidx.appcompat.app.AppCompatActivity;
-public class MainActivity extends AppCompatActivity {
-   @Override
-   protected void onCreate(Bundle savedInstanceState) {
-     super.onCreate(savedInstanceState);
-     setContentView(R.layout.activity_main);
-     EditText editPeso = findViewById(R.id.editPeso);
-     EditText editAltura = findViewById(R.id.editAltura);
-     Button btnCalcular = findViewById(R.id.btnCalcular);
-     TextView textResultado = findViewById(R.id.textResultado);
-     btnCalcular.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View v) {
-            String pesoStr = editPeso.getText().toString();
-            String alturaStr = editAltura.getText().toString();
-            if (pesoStr.isEmpty() || alturaStr.isEmpty()) {
-                textResultado.setText("Preencha todos os campos!");
-                return;
-            }
-            float peso = Float.parseFloat(pesoStr);
-            float altura = Float.parseFloat(alturaStr);
-            float imc = peso / (altura * altura);
-            textResultado.setText("Seu IMC é: " + String.format(Locale.US,"%.2f",imc));
-
-        }
-    });
-   }
-}
-
+           
 
